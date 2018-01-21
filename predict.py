@@ -57,10 +57,10 @@ for compound in known.columns:
     r2 = r2_score(Y, m * X + b)
 
     # Plot fit
-    plt.title(compound + '\n$R^2$: {}'.format(round(r2, 4)))
+    plt.title(compound + ', $R^2$: {}'.format(round(r2, 5)) + '\n y = {}x + {}'.format(round(m, 5), round(b, 5)))
     plt.scatter(X, Y)
-    plt.xlabel('Concentration')
-    plt.ylabel(u'Area Ratio (µM)')
+    plt.xlabel(u'Concentration (µM)')
+    plt.ylabel('Area Ratio')
     abline(m, b)
     plt.savefig("{}.png".format(compound))
     plt.close()
