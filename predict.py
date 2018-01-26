@@ -54,7 +54,12 @@ for compound in known.columns:
     pred_df[compound] = conc_pred
 
     # Calculate r^2
-    r2 = r2_score(Y, m * X + b)
+    try:
+    	r2 = r2_score(Y, m * X + b)
+    except:
+    	print compound, m, b
+    	print X
+    	print Y
 
     # Plot fit
     plt.title(compound + ', $R^2$: {}'.format(round(r2, 5)) + '\n y = {}x + {}'.format(round(m, 5), round(b, 5)))
